@@ -56,12 +56,14 @@ const vectorLayer = new VectorLayer({
   style: styleFunction,
 });
 
-
-
 const map = new Map({
   layers: [
     new TileLayer({
-      source: new OSM(),
+      source: new XYZ({
+        // Some satelite data...
+        url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        maxZoom: 19
+      })
     }),
     vectorLayer,
   ],

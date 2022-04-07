@@ -39,7 +39,14 @@ const geojsonObject = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [4e5, -5e6]
+        // name: 'Çatalhöyük'
+        // Founded: Approximately 7100 BC
+        // Abandoned: Approximately 5700 BC
+        // Population: around 10,000
+        // 37°40′00″N 32°49′41″E
+        // coordinates: [4e5, -5e6]
+        // Found here: http://epsg.io/map#srs=3857&x=4138256.012305&y=4493515.820440&z=19&layer=satellite
+        coordinates: [4138265.134433, 4493530.679212]
       }
     }
   ]

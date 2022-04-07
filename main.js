@@ -12,17 +12,34 @@ import {
 } from 'ol/style'
 import { OSM, XYZ, Vector as VectorSource } from 'ol/source'
 
-const image = new CircleStyle({
-  radius: 5,
-  fill: null,
-  stroke: new Stroke({ color: 'red', width: 1 })
-})
-
-const styles = {
-  Point: new Style({ image })
+function getStyles (feature) {
+  const styles = {
+    Point: new Style({
+      image: new CircleStyle({
+        radius: 5,
+        fill: null,
+        stroke: new Stroke({ color: 'red', width: 1 })
+      }),
+      text: new Text({
+        font: '12px Calibri,sans-serif',
+        fill: new Fill({ color: '#000' }),
+        stroke: new Stroke({
+          color: '#fff', width: 2
+        }),
+        // get the text from the feature - `this` is ol.Feature
+        // and show only under certain resolution
+        text: 'Çatalhöyük',
+        // FIXME see https://stackoverflow.com/questions/39006597/openlayers-3-add-text-label-to-feature
+        // text: feature.get('description'),
+        offsetX: 0,
+        offsetY: -12.5
+      })
+    })
+  }
+  return styles
 }
-
 const styleFunction = function (feature) {
+  const styles = getStyles(feature)
   return styles[feature.getGeometry().getType()]
 }
 
@@ -37,9 +54,10 @@ const geojsonObject = {
   features: [
     {
       type: 'Feature',
+      description: 'Çatalhöyük',
       geometry: {
         type: 'Point',
-        // name: 'Çatalhöyük'
+        description: 'Çatalhöyük',
         // Founded: Approximately 7100 BC
         // Abandoned: Approximately 5700 BC
         // Population: around 10,000
@@ -50,6 +68,7 @@ const geojsonObject = {
       }
     }
   ]
+  // TODO Jerico | أريحا
 }
 
 const vectorSource = new VectorSource({

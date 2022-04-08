@@ -10,7 +10,7 @@ import {
   Style,
   Text
 } from 'ol/style'
-import { OSM, XYZ, Vector as VectorSource } from 'ol/source'
+import { XYZ, Vector as VectorSource } from 'ol/source'
 
 function getStyles (feature) {
   const styles = {
@@ -82,7 +82,7 @@ const vectorLayer = new VectorLayer({
   style: styleFunction
 })
 
-const map = new Map({
+window.map = new Map({
   layers: [
     new TileLayer({
       source: new XYZ({

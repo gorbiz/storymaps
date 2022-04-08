@@ -15,7 +15,7 @@ console.log({ settlements })
 .timeline {
   text-align: left;
   width: 100%;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.5);
   position: fixed;
   bottom: 0;
   padding: 0.5em 0.5em;

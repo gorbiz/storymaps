@@ -5,9 +5,6 @@ import Tile from 'ol/layer/Tile' // Tile rendering method
 import OSM from 'ol/source/OSM' // OSM tiles 【OSM Cannot be used in actual development , because OSM There's something wrong with the border of China map in ！！！！】
 import 'ol/ol.css' // Map style
 
-import settlements from '../settlements'
-console.log({ settlements })
-
 defineProps({
   msg: String
 })
@@ -41,10 +38,14 @@ onMounted(() => {
 <template>
   <div id="map" class="map__x"></div>
 </template>
+
 <style scoped>
+/* @import "node_modules/ol/ol.css"; */
 .map__x {
-  width: 600px;
-  height: 600px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
   border: 1px solid #eee;
 }
 </style>

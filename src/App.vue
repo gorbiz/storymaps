@@ -6,13 +6,16 @@ import TimeLine from './components/TimeLine.vue'
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <p>Test123</p>
   <HelloWorld msg="Hello Vue 3 + Vite" />
   <TimeLine msg="hello" />
 </template>
 
 <style>
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

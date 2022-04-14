@@ -28,10 +28,11 @@
 <body>
   <div id="mobile-div">
     <svg id="mobile-svg" xmlns="http://www.w3.org/2000/svg" version="1.1">
-      <g id="tpl-grid" stroke="black" stroke-width="1" />
+      <g id="tpl-grid" stroke="black" stroke-width="0.25" />
 
       <g>
         <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(0.03125)" />
+        <use xlink:href="#tpl-grid" transform="translate(1, 1) scale(0.0009765625)" />
       </g>
     </svg>
   </div>
@@ -123,8 +124,8 @@
         // center: 1,
         zoomScaleSensitivity: 0.2,
         minZoom: 0.01,
-        maxZoom: 100,
-        // customEventsHandler: eventsHandler
+        maxZoom: 10000,
+        customEventsHandler: eventsHandler
       });
     };
   </script>

@@ -13,29 +13,50 @@
       width: 100%;
       height: 100vh;
     }
+    svg {
+      display: inline;
+      width: inherit;
+      min-width: inherit;
+      max-width: inherit;
+      height: inherit;
+      min-height: inherit;
+      max-height: inherit;
+    }
   </style>
 </head>
 
 <body>
   <div id="mobile-div">
-    <svg id="mobile-svg" xmlns="http://www.w3.org/2000/svg" style="display: inline; width: inherit; min-width: inherit; max-width: inherit; height: inherit; min-height: inherit; max-height: inherit;" version="1.1">
-      <defs>
-        <linearGradient id="linear-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" style="stop-color:rgb(56,121,217);stop-opacity:1" />
-          <stop offset="100%" style="stop-color:rgb(138,192,7);stop-opacity:1" />
-        </linearGradient>
-      </defs>
-      <g fill="none">
-        <g stroke="#000" fill="#FFF">
-          <rect x="5" y="5" width="240" height="240" fill="url(#linear-gradient)"/>
-          <path d="M 5 5  L 245 245 Z"/>
-        </g>
+    <svg id="mobile-svg" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <g id="tpl-grid" stroke="black" stroke-width="1" />
+
+      <g>
+        <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(0.03125)" />
       </g>
     </svg>
   </div>
 
   <script>
+    function grid () {
+      let res = ''
+      scale = 10
+      const grid = { x: 32, y: 32 }
+      for (let y = 0; y <= grid.y * scale; y += scale) {
+        res += `<line x1="${0}" y1="${y}" x2="${grid.x * scale}" y2="${y}" />\n`
+          // g.line(0, y, grid.x * scale, y)
+        }
+        for (let x = 0; x <= grid.x * scale; x += scale) {
+        res += `<line x1="${x}" y1="${0}" x2="${x}" y2="${grid.y * scale}" />\n`
+        // g.line(x, 0, x, grid.y * scale)
+      }
+      return res
+    }
+
     window.onload = function() {
+      const tpl = document.getElementById('tpl-grid')
+      tpl.innerHTML = grid()
+      // console.log(grid())
+      // console.log({ grid })
       var eventsHandler;
 
       eventsHandler = {
@@ -96,11 +117,14 @@
 
       // Expose to window namespace for testing purposes
       window.panZoom = svgPanZoom('#mobile-svg', {
-        zoomEnabled: true
-      , controlIconsEnabled: true
-      , fit: 1
-      , center: 1
-      , customEventsHandler: eventsHandler
+        // zoomEnabled: true,
+        // controlIconsEnabled: false,
+        // fit: 1,
+        // center: 1,
+        zoomScaleSensitivity: 0.2,
+        minZoom: 0.01,
+        maxZoom: 100,
+        // customEventsHandler: eventsHandler
       });
     };
   </script>

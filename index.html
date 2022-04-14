@@ -28,19 +28,23 @@
 <body>
   <div id="mobile-div">
     <svg id="mobile-svg" xmlns="http://www.w3.org/2000/svg" version="1.1">
-      <g id="tpl-grid" stroke="black" stroke-width="0.25" />
+      <g visibility="hidden">
+        <g id="tpl-grid" stroke="black" stroke-width="0.25" />
+      </g>
       <g>
+        <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(1)" />
         <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(32)" />
         <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(1024)" />
         <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(32768)" />
       </g>
+      <!-- <image href="img/homo-sapiens-hunter-gatherers.png" height="1024" width="1024" /> -->
     </svg>
   </div>
 
   <script>
     function grid () {
       let res = ''
-      scale = 10
+      scale = 1
       const grid = { x: 32, y: 32 }
       for (let y = 0; y <= grid.y * scale; y += scale) {
         res += `<line x1="${0}" y1="${y}" x2="${grid.x * scale}" y2="${y}" vector-effect="non-scaling-stroke" />\n`

@@ -31,18 +31,13 @@
       <g visibility="hidden">
         <g id="tpl-grid" stroke="black" stroke-width="0.25" />
       </g>
-      <g>
-        <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(1)" />
-        <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(32)" />
-        <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(1024)" />
-        <use xlink:href="#tpl-grid" transform="translate(0, 0) scale(32768)" />
-      </g>
-      <!-- <image href="img/homo-sapiens-hunter-gatherers.png" height="1024" width="1024" /> -->
+      <g id="grids"></g>
+      <g id="images"></g>
     </svg>
   </div>
 
   <script>
-    function grid () {
+    function archetypeGrid () {
       let res = ''
       scale = 1
       const grid = { x: 32, y: 32 }
@@ -55,9 +50,57 @@
       return res
     }
 
+    function grid ({ scale, x = 0, y = 0 } = { scale: 1, x: 0, y: 0 }) {
+      return `<use xlink:href="#tpl-grid" transform="translate(${x}, ${y}) scale(${scale})" />`
+    }
+
+    function image ({ href, x = 0, y = 0, width, height }) {
+      return `<image href="${href}" x="${x}" y="${y}" height="${width}" width="${height}" />`
+    }
+
     window.onload = function() {
-      document.getElementById('tpl-grid').innerHTML = grid()
-      // var eventsHandler;
+      // init the grid achetype (or template)
+      document.getElementById('tpl-grid').innerHTML = archetypeGrid()
+
+      const grids = document.getElementById('grids')
+      grids.innerHTML += grid({ scale: 1 }) // first 32 x 32 years of the universe
+      grids.innerHTML += grid({ scale: 32 })
+      grids.innerHTML += grid({ scale: 1024 })
+      grids.innerHTML += grid({ scale: 32768 })
+      grids.innerHTML += grid({ x: 1024 * (1024 - 32), y: 1024 * (1024 - 32), scale: 1024 })
+
+      const images = document.getElementById('images')
+      images.innerHTML += image({
+        href: 'img/homo-sapiens-hunter-gatherers.png',
+        width: 32768/2,
+        height: 32768/2,
+        x: 32768 * 31 + 32768/2,
+        y: 32768 * 31 + 32768/2
+       })
+
+      images.innerHTML += image({
+        href: 'img/homo-sapiens-agriculture.png',
+        width: 1024*4, // 4k x 4k = 16k ...a but much, 8 - 12k BP is more like it
+        height: 1024*4,
+        x: 32768 * 31 + 1024 * (32-4),
+        y: 32768 * 31 + 1024 * (32-4)
+       })
+
+      const data = [
+        {
+          name: 'Homo Sapiens',
+          description: 'Mostly hunter gatherers, at least 90% of the time (number of individuals is a different story).',
+          image: 'img/homo-sapiens-hunter-gatherers.png',
+          start: '250 000 BP',
+          end: null
+        },
+        {
+          name: 'Homo Sapiens, Agriculture',
+          image: 'img/homo-sapiens-agriculture.png',
+          start: '12 000 BP',
+          end: null
+        }
+      ]
 
       var eventsHandler = {
         haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel']

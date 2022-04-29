@@ -1,4 +1,12 @@
 # OpenLayers + Vite
+:warning: Deprecated in favour of ../1.vite-project (I think).
+
+Imagined building on the original "Stories in Maps" idea: map + timeline (for story telling).
+ - It has a world map (OpenLayers)
+ - ...with location & name of ancient settlement(s)
+ - ...also a placeholder "time line" overlay xD
+
+----
 
 This example demonstrates how the `ol` package can be used with [Vite](https://vitejs.dev/).
 

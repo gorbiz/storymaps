@@ -1,0 +1,14 @@
+{
+  "name": "4.timeline-2d-pan-zoom-quads",
+  "version": "1.0.0",
+  "description": "Drawing the lines like this seems stupid... The same lines are drawn several times in different thiuckness... Makes in unnecessarily slow...",
+  "main": "index.html",
+  "scripts": {
+    "start": "lr-http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lr-http-server": "^0.1.5"
+  }
+}

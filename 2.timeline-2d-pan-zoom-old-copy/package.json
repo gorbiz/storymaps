@@ -1,0 +1,32 @@
+{
+  "name": "svg.pan-zoom.js",
+  "version": "2.8.0",
+  "description": "A JavaScript library for panning and zooming SVG things.",
+  "main": "src/svg.pan-zoom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jillix/svg.pan-zoom.js.git"
+  },
+  "keywords": [
+    "svg",
+    "pan",
+    "zoom"
+  ],
+  "contributors": [
+    "Ionică Bizău <bizauionica@gmail.com> (http://ionicabizau.net)",
+    "Martin Bednorz <m.s.bednorz@gmail.com>",
+    "tenKinetic <tenkinetic@gmail.com"
+  ],
+  "author": "jillix <contact@jillix.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jillix/svg.pan-zoom.js/issues"
+  },
+  "homepage": "https://github.com/jillix/svg.pan-zoom.js",
+  "blah": {
+    "ex_img": "http://i.imgur.com/jbJJFHE.jpg"
+  }
+}

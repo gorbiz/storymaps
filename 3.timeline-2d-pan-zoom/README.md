@@ -1,0 +1,6 @@
+# timeline 2D pan zoom
+Experimenting with a 2D timeline
+On the realization that 32 x 32 = 1024, and that is pretty darn close to 1000...
+Zoom in "twice" and you traverse from (ex) 1 year to 1 000 000 years...
+
+`npm start` or just `chrome index.html`

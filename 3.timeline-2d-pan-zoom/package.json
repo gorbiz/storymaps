@@ -1,0 +1,14 @@
+{
+  "name": "3.timeline-2d-pan-zoom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "lr-http-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "lr-http-server": "^0.1.5"
+  }
+}

@@ -28,7 +28,7 @@ This would allow for quadrants like:
 - `15 625 years ~=` Agriculture (a bit younger).
 - `3 900 years ~=` Agrarian civilizations (a bit older), also ~2 Jesus (a unit of time).
 - `977 years ~=` ...
-- `244 years ~=` Scientific revolution.
+- `244 years ~=` Scientific revolution... or more like the industrial 🧐
 
 So, you'll be off by a bit sometimes but it is not too far off. And each of the above would be represented by a square into which you could fit an image...
 

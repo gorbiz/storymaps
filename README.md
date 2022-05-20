@@ -38,6 +38,6 @@ Not yet working on GitHub pages (https://gorbiz.github.io/storymaps/map-timeline
 
 # To-do
 
-- [ ] Move images from 32x32 to quadrant experiment (where they belong).
-- [ ] Draw quadrant more efficient (currently very stupid & slow).
-- [ ] Make Map-timeline work here (on GitHub pages).
+- [ ] Move **images from 32x32 to quadrant** experiment (where they belong).
+- [ ] **Draw quadrants** more **efficiently** (currently very stupid & slow).
+- [ ] Make **Map-timeline** work here **on GitHub pages**.

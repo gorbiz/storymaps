@@ -34,10 +34,3 @@ So, you'll be off by a bit sometimes but it is not too far off. And each of the 
 
 ## Map-timeline
 Not yet working on GitHub pages (https://gorbiz.github.io/storymaps/map-timeline/index.html), clone repo & read [README.md](/map-timeline/README.md) for instructions.
-
-
-# To-do
-
-- [ ] Move **images from 32x32 to quadrant** experiment (where they belong).
-- [ ] **Draw quadrants** more **efficiently** (currently very stupid & slow).
-- [ ] Make **Map-timeline** work here **on GitHub pages**.

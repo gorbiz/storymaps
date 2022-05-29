@@ -42,14 +42,6 @@
            + '<line x1="0" y1="1" x2="2" y2="1" vector-effect="non-scaling-stroke" />\n'
     }
 
-    // function border ({ scale }) {
-    //   // TODO rect instead?
-    //   return `<line x1="0" y1="0" x2="${scale}" y2="0" stroke-width="10" />\n`
-    //        + `<line x1="${scale}" y1="0" x2="${scale}" y2="${scale}" stroke-width="10" />\n`
-    //        + `<line x1="${scale}" y1="${scale}" x2="0" y2="${scale}" stroke-width="10" />\n`
-    //        + `<line x1="0" y1="${scale}" x2="0" y2="0" stroke-width="10" />\n`
-    // }
-
     function grid ({ scale, x = 0, y = 0 } = { scale: 1, x: 0, y: 0 }) {
       return `<use xlink:href="#tpl-grid" transform="translate(${x}, ${y}) scale(${scale})" />`
     }
@@ -57,7 +49,6 @@
     function gridz ({ scale, x = 0, y = 0 } = { scale: 1, x: 0, y: 0 }) {
       if (scale < 1) return ''
       let res = grid({ scale, x, y })
-      // scale = scale / 2
       // res += gridz({ scale: scale * 0.5, x, y })
       // res += gridz({ scale: scale * 0.5, x: x + scale, y })
       // res += gridz({ scale: scale * 0.5, x: x, y: y + scale })
@@ -75,7 +66,6 @@
 
       const scale = 1024
       const grids = document.getElementById('grids')
-      // grids.innerHTML += border({ scale }) // XXX never worked
       grids.innerHTML += gridz({ scale })
 
       // const images = document.getElementById('images')

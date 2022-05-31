@@ -31,8 +31,8 @@
       <g visibility="hidden">
         <g id="tpl-grid" stroke="black" stroke-width="0.5" />
       </g>
-      <g id="grids"></g>
       <g id="images"></g>
+      <g id="grids"></g> <!-- NOTE Grid after images; grid drawn on top -->
     </svg>
   </div>
 
@@ -55,7 +55,8 @@
     }
 
     function image ({ href, x = 0, y = 0, width, height }) {
-      return `<image href="${href}" x="${x}" y="${y}" height="${width}" width="${height}" />`
+      // FIXME preserveAspectRatio="none" is a hack...
+      return `<image href="${href}" x="${x}" y="${y}" height="${height}" width="${width}" preserveAspectRatio="none" />`
     }
 
     window.onload = function() {
@@ -65,23 +66,6 @@
       const scale = 1024
       const grids = document.getElementById('grids')
       grids.innerHTML += gridz({ scale })
-
-      // const images = document.getElementById('images')
-      // images.innerHTML += image({
-      //   href: 'img/homo-sapiens-hunter-gatherers.png',
-      //   width: 32768/2,
-      //   height: 32768/2,
-      //   x: 32768 * 31 + 32768/2,
-      //   y: 32768 * 31 + 32768/2
-      //  })
-
-      // images.innerHTML += image({
-      //   href: 'img/homo-sapiens-agriculture.png',
-      //   width: 1024*4, // 4k x 4k = 16k ...a but much, 8 - 12k BP is more like it
-      //   height: 1024*4,
-      //   x: 32768 * 31 + 1024*(32-4),
-      //   y: 32768 * 31 + 1024*(32-4)
-      //  })
 
       const data = [
         {
@@ -98,6 +82,75 @@
           end: null
         }
       ]
+
+      const factor = 32
+      const images = document.getElementById('images')
+      images.innerHTML += image({
+        href: 'img/billions.jpg', // NOTE panorama-style image 2:1...
+        // 2 000 000 BP - now
+        width: factor * 64,
+        height: factor * 64,
+        x: factor * 32 - factor * 64,
+        y: factor * 32 - factor * 64
+      })
+      images.innerHTML += image({
+        href: 'img/mamals.png', // NOTE panorama-style image 2:1...
+        // 2 000 000 BP - now
+        width: factor * 16,
+        height: factor * 16,
+        x: factor * 32 - factor * 16,
+        y: factor * 32 - factor * 16
+      })
+
+      images.innerHTML += image({
+        href: 'img/homo-species.jpg', // NOTE panorama-style image 2:1...
+        // 2 000 000 BP - now
+        width: factor * 4,
+        height: factor * 2,
+        x: factor * 32 - factor * 4,
+        y: factor * 32 - factor * 2
+      })
+
+      images.innerHTML += image({
+        href: 'img/homo-sapiens-hunter-gatherers.png',
+        // 250 000 BP - now
+        width: factor / 1,
+        height: factor / 1,
+        x: factor * 32 - factor / 1,
+        y: factor * 32 - factor / 1
+      })
+
+      //    16b     - TODO Make it this big!
+      // 8b
+      //    4b
+      // 2b
+      //    1b      - Billions & billions
+      // 512m
+      //    256m
+      // 128m
+      //    64m     - Mamals
+      // 32m
+      //    16m
+      // 8m
+      //    4m
+      // 2m         - Homo
+      //    1m
+      // 500k
+      //    250k    - Homo sapiens
+      // 125k
+      //    62.5k   - Cognitive revolution <-- TODO Add this (see Yuval Noah Harari)
+      // 31.25k
+      //    15.625k - Agriculture
+
+      images.innerHTML += image({
+        href: 'img/homo-sapiens-agriculture.png',
+        start: '12 000 BP',
+        // 15.625k is acceptable
+        width: factor / 4, // 4k x 4k = 16k ...a but much, 8 - 12k BP is more like it
+        height: factor / 4,
+        x: factor * 32 - factor / 4,
+        y: factor * 32 - factor / 4
+       })
 
       var eventsHandler = {
         haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel']

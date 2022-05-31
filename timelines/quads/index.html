@@ -106,7 +106,8 @@
       images.innerHTML += imageNow({ href: 'img/mamals.png',                        size: 16 })
       images.innerHTML += imageNow({ href: 'img/homo-species.jpg',                  size: 2, width: 2 })
       images.innerHTML += imageNow({ href: 'img/homo-sapiens-hunter-gatherers.png', size: 1 })
-      images.innerHTML += imageNow({ href: 'img/homo-sapiens-agriculture.png',      size: 0.25 })
+      images.innerHTML += imageNow({ href: 'img/homo-sapiens-agriculture.png',      size: 1/4 })
+      images.innerHTML += imageNow({ href: 'img/science.png',      size: 1/32 })
 
       //    16b     - Age of Universe Well 13.4b or something, really...
       // 8b
@@ -128,7 +129,13 @@
       // 125k
       //    62.5k   - Cognitive revolution <-- TODO Add this (see Yuval Noah Harari)
       // 31.25k
-      //    15.625k - Agriculture
+      //    15.625k - Agriculture (1/4)
+      // 7.8125k
+      //    4k      - ... (1/8)
+      // 2k
+      //    1k      - ... (1/16)
+      // 500
+      //    250     - Scientific Revolution (1/32)
 
       var eventsHandler = {
         haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel']

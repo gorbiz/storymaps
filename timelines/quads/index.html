@@ -59,11 +59,27 @@
       return `<image href="${href}" x="${x}" y="${y}" height="${height}" width="${width}" preserveAspectRatio="none" />`
     }
 
+    const scale = 4096
+    const factor = 32
+
+    const xEnd = scale
+    const yEnd = scale
+    function imageNow ({ href, size, width = 1 }) {
+      const w = factor * size * width
+      const h = factor * size * 1
+      return image({
+        href,
+        width: w,
+        height: h,
+        x: xEnd - w,
+        y: yEnd - h
+      })
+    }
+
     window.onload = function() {
       // init the grid achetype (or template)
       document.getElementById('tpl-grid').innerHTML = archetypeGrid()
 
-      const scale = 1024
       const grids = document.getElementById('grids')
       grids.innerHTML += gridz({ scale })
 
@@ -83,46 +99,18 @@
         }
       ]
 
-      const factor = 32
       const images = document.getElementById('images')
-      images.innerHTML += image({
-        href: 'img/billions.jpg', // NOTE panorama-style image 2:1...
-        // 2 000 000 BP - now
-        width: factor * 64,
-        height: factor * 64,
-        x: factor * 32 - factor * 64,
-        y: factor * 32 - factor * 64
-      })
-      images.innerHTML += image({
-        href: 'img/mamals.png', // NOTE panorama-style image 2:1...
-        // 2 000 000 BP - now
-        width: factor * 16,
-        height: factor * 16,
-        x: factor * 32 - factor * 16,
-        y: factor * 32 - factor * 16
-      })
+      images.innerHTML += imageNow({ href: 'img/universe.png',                      size: 256 })
+      images.innerHTML += imageNow({ href: 'img/earth.jpg',                         size: 128 })
+      images.innerHTML += imageNow({ href: 'img/billions.jpg',                      size: 64 })
+      images.innerHTML += imageNow({ href: 'img/mamals.png',                        size: 16 })
+      images.innerHTML += imageNow({ href: 'img/homo-species.jpg',                  size: 2, width: 2 })
+      images.innerHTML += imageNow({ href: 'img/homo-sapiens-hunter-gatherers.png', size: 1 })
+      images.innerHTML += imageNow({ href: 'img/homo-sapiens-agriculture.png',      size: 0.25 })
 
-      images.innerHTML += image({
-        href: 'img/homo-species.jpg', // NOTE panorama-style image 2:1...
-        // 2 000 000 BP - now
-        width: factor * 4,
-        height: factor * 2,
-        x: factor * 32 - factor * 4,
-        y: factor * 32 - factor * 2
-      })
-
-      images.innerHTML += image({
-        href: 'img/homo-sapiens-hunter-gatherers.png',
-        // 250 000 BP - now
-        width: factor / 1,
-        height: factor / 1,
-        x: factor * 32 - factor / 1,
-        y: factor * 32 - factor / 1
-      })
-
-      //    16b     - TODO Make it this big!
+      //    16b     - Age of Universe Well 13.4b or something, really...
       // 8b
-      //    4b
+      //    4b      - Earth (The age of Earth is estimated to be 4.54 ± 0.05 billion years)
       // 2b
       //    1b      - Billions & billions
       // 512m
@@ -141,16 +129,6 @@
       //    62.5k   - Cognitive revolution <-- TODO Add this (see Yuval Noah Harari)
       // 31.25k
       //    15.625k - Agriculture
-
-      images.innerHTML += image({
-        href: 'img/homo-sapiens-agriculture.png',
-        start: '12 000 BP',
-        // 15.625k is acceptable
-        width: factor / 4, // 4k x 4k = 16k ...a but much, 8 - 12k BP is more like it
-        height: factor / 4,
-        x: factor * 32 - factor / 4,
-        y: factor * 32 - factor / 4
-       })
 
       var eventsHandler = {
         haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel']

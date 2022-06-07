@@ -76,6 +76,18 @@
       })
     }
 
+    function imageEnded ({ href, size, width = 1, x = 0, y = 0 }) {
+      const w = factor * size * width
+      const h = factor * size * 1
+      return image({
+        href,
+        width: w,
+        height: h,
+        x: xEnd + (w * (x - 1)),
+        y: yEnd + (h * (y - 1))
+      })
+    }
+
     window.onload = function() {
       // init the grid achetype (or template)
       document.getElementById('tpl-grid').innerHTML = archetypeGrid()
@@ -108,6 +120,11 @@
       images.innerHTML += imageNow({ href: 'img/homo-sapiens-hunter-gatherers.png', size: 1 })
       images.innerHTML += imageNow({ href: 'img/homo-sapiens-agriculture.png',      size: 1/4 })
       images.innerHTML += imageNow({ href: 'img/science.png',      size: 1/32 })
+
+      // XXX A period that HAS ended ...not represented ...amazingly 🧐
+      images.innerHTML += imageEnded({ href: 'img/dinosaur.png',                    size: 16, x: -1, y: -1 })
+      images.innerHTML += imageEnded({ href: 'img/dinosaur.png',                    size: 16, x: 0, y: -1 })
+      images.innerHTML += imageEnded({ href: 'img/dinosaur.png',                    size: 16, x: -1, y: 0 })
 
       //    16b     - Age of Universe Well 13.4b or something, really...
       // 8b

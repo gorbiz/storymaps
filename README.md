@@ -9,7 +9,9 @@ The idea is that `32 x 32 = 1024` ...very close to `1000`, let's floor it & tell
 
 The grid is representing the last 1 billion years, the last box (lower right) represents the last million years, it in turn has 32 x 32 boxes inside it, each of those represent 1000 years, next down 1 year... 8 hours, 30 seconds, 30 ms, 30 µs etc...
 ## Timeline: Quadrants
-⚠️ I don't like this, see #8 
+⚠️ I don't like this, see [Issue #8](https://github.com/gorbiz/storymaps/issues/8)
+
+
 [Live demo](https://gorbiz.github.io/storymaps/timelines/quads/index.html)
 
 The idea here is much like the `32 x 32` grid but instead we have `2 x 2`, like this:

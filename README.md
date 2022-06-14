@@ -9,6 +9,7 @@ The idea is that `32 x 32 = 1024` ...very close to `1000`, let's floor it & tell
 
 The grid is representing the last 1 billion years, the last box (lower right) represents the last million years, it in turn has 32 x 32 boxes inside it, each of those represent 1000 years, next down 1 year... 8 hours, 30 seconds, 30 ms, 30 µs etc...
 ## Timeline: Quadrants
+⚠️ I don't like this, see #8 
 [Live demo](https://gorbiz.github.io/storymaps/timelines/quads/index.html)
 
 The idea here is much like the `32 x 32` grid but instead we have `2 x 2`, like this:
@@ -31,6 +32,10 @@ This would allow for quadrants like:
 - `244 years ~=` Scientific revolution... or more like the industrial 🧐
 
 So, you'll be off by a bit sometimes but it is not too far off. And each of the above would be represented by a square into which you could fit an image...
+
+Example:
+![image](https://user-images.githubusercontent.com/207850/173603397-14ba89bd-15a7-4857-9b25-7761e40bc413.png)
+
 
 ## Map-timeline
 Not yet working on GitHub pages (https://gorbiz.github.io/storymaps/map-timeline/index.html), clone repo & read [README.md](/map-timeline/README.md) for instructions.
